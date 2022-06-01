@@ -12,6 +12,7 @@ import { Game } from 'src/models/game';
 })
 export class GameComponent implements OnInit {
 
+  
 
   game: Game;
   takeCardAnimation = false;
