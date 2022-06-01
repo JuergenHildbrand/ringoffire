@@ -1,11 +1,7 @@
-<app-player class="playerPosition" *ngIf="game.playerNames.length">
-    <ng-container *ngFor="let name of game.playerNames; let i = index;" [ngStyle]="{'top.px': 100 + (i * 120)}" [name]="name">
-        <div *ngFor="let img of game.playerImgs;" [player]="img"></div>
-    </ng-container>
-    
-    
-    
-    
+<app-player class="playerPosition"
+        *ngFor="let name of game.playerNames; let i = index;" 
+        [ngStyle]="{'top.px': 100 + (i * 120)}"
+        [name]="name">
 </app-player>
 
 <div id="gameField">
