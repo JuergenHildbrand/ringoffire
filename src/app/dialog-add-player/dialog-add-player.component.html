@@ -12,16 +12,16 @@
     <div class="avatar">
         <p>Choose an avatar</p>
         <div class="playersImg">
-            <div class="imgBtnCont" *ngFor="let player of game.playerImgs; let i = index;">
-                <img src="/assets/img/players/{{ player }}.png">
-                <button class="avatarBtn" (click)="addAvatar('p' + i)"></button>
+            <div class="imgBtnCont" *ngFor="let player of avatars; let i = index;">
+                <img src="assets/img/players/p{{ player }}.png">
+                <button class="avatarBtn" (click)="addAvatar(i)"></button>
                 <button class="avatarBtn2" (click)="alarm()" [disabled]="name" [class.d-none]="name"></button>
             </div>
         </div>
     </div>
     <div mat-dialog-actions>
         <button mat-button (click)="onNoClick()">No Thanks</button>
-        <button mat-button [mat-dialog-close]="name" [disabled]="!name" cdkFocusInitial>Ok</button>
+        <button mat-button [mat-dialog-close]="createNewPlayer()" [disabled]="!name" cdkFocusInitial>Ok</button>
     </div>
 
 </div>

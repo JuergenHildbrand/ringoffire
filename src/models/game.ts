@@ -5,7 +5,7 @@ export class Game {
     public playerImgs: string[] = [];
     // public playerImg: string[] = [];
     public currentPlayer: number = 0;
-    public currentImg: string = '';
+    public currentImg: string[] = [];
 
     constructor() {
         for (let i = 1; i < 14; i++) {
@@ -17,8 +17,6 @@ export class Game {
         for (let i = 1; i < 9; i++) {
             this.playerImgs.push('p' + i);
         }
-
-        console.log(this.currentImg)
         
         
         shuffle(this.stack);

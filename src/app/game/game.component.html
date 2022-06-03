@@ -3,7 +3,7 @@
     *ngFor="let name of game.playerNames; let i = index;" 
     [ngStyle]="{'top.px': 60 + (i * 90)}"
     [name]="name"
-    [currentImg]="game.currentImg"
+    [currentImg]="game.currentImg[i]"
     [playerActive]="i == game.currentPlayer">
 </app-player>
 

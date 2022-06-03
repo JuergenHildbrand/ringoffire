@@ -3,6 +3,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { Game } from 'src/models/game';
 
 
+
 @Component({
   // providers:[GameComponent],
   selector: 'app-dialog-add-player',
@@ -13,9 +14,13 @@ export class DialogAddPlayerComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>,) {}
 
-  game: Game;
+
   name: string = '';
+  img: number;
   alreadySelected: boolean = false;
+  avatars = [
+    1,2,3,4,5,6,7,8
+  ];
 
 
 
@@ -25,13 +30,12 @@ export class DialogAddPlayerComponent implements OnInit {
   //   this.comp.addAvatar(i);
   // }
 
-  addAvatar(player) {
-    // this.game.playerImg.unshift(this.game.playerImgs[player]);
-    this.game.playerImgs.splice(player, 1);
+  addAvatar(avatarIndex) {
+
+    // this.game.playerImgs.splice(player, 1);
     this.alreadySelected = true;
-    this.game.currentImg = player;
-    console.log(player);
-    // this.tempPlayer = this.game.playerImg[0];
+    this.img = avatarIndex;
+    console.log(avatarIndex)
   }
 
   alarm() {
@@ -44,6 +48,10 @@ export class DialogAddPlayerComponent implements OnInit {
 
   onNoClick() {
     this.dialogRef.close();
+  }
+
+  createNewPlayer() {
+    return {name : this.name, img : this.img}
   }
 
 }

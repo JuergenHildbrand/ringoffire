@@ -37,7 +37,6 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
     this.newGame();
     this.addPlayer = false;
-    console.log(this.playerNames)
   }
 
   newGame() {
@@ -65,13 +64,14 @@ export class GameComponent implements OnInit {
     this.addPlayer = true;
 
 
-    dialogRef.afterClosed().subscribe((name: string) => {
-      if (name && name.length > 1) {
-        this.game.playerNames.push(name);
+    dialogRef.afterClosed().subscribe((newPlayer : {name: string, img: string}) => {
+      if (newPlayer && newPlayer.name.length > 1) {
+        this.game.playerNames.push(newPlayer.name);
+        this.game.currentImg.push(newPlayer.img + 1);
         this.alreadySelected = false;
   
-        // console.log(this.game.playerImg)
-        console.log(this.game.playerImgs) 
+
+        console.log(newPlayer) 
       }
     });
   }
