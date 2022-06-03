@@ -3,19 +3,23 @@
     width: 200px;
     display: flex;
     align-items: center;
-    background-color: orange;
-    border-top-left-radius: 3.6vw;
-    border-bottom-left-radius: 3.6vw;
+    background-color: rgba(163, 163, 163, 0.7);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
 
     img {
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
         object-fit: cover;
         border-radius: 100%;
-        margin: 1vw;
+        margin: 8px;
     }
     
     span {
         font-size: 32px;
     }
+}
+
+.playerActive {
+    background-color: orange !important;
 }

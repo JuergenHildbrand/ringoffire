@@ -9,11 +9,13 @@ export class PlayerComponent implements OnInit {
 
   @Input() name;
   @Input() player;
+  @Input() playerActive: boolean = false;
+  @Input() currentImg;
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.player)
+    console.log(this.currentImg)
   }
 
 }

@@ -1,0 +1,29 @@
+<div class="dialogCont">
+
+    <h1 mat-dialog-title>Add new player</h1>
+    <div mat-dialog-content>
+        <p>Please enter the name of a player</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="name">
+            <!-- ng model bindet eine variable an das inputfield (two way binding) -->
+        </mat-form-field>
+    </div>
+    <!-- <div class="avatar">
+        <p>Choose an avatar</p>
+        <div class="playersImg">
+            <div class="imgBtnCont" *ngFor="let player of playerImgs; let i = index;">
+                <img src="/assets/img/players/{{ player }}.png">
+                <button class="avatarBtn" (click)="addAvatar('p' + i)"></button>
+                <button class="avatarBtn2" (click)="alarm()" [disabled]="name" [class.d-none]="name"></button>
+            </div>
+        </div>
+    </div> -->
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">No Thanks</button>
+        <button mat-button [mat-dialog-close]="name" [disabled]="!name" cdkFocusInitial>Ok</button>
+    </div>
+
+</div>
+
+<!-- [disabled]="alreadySelected || !name" -->

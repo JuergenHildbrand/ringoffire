@@ -1,0 +1,111 @@
+.dialogCont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 90vw;
+    height: fit-content;
+
+    .avatar {
+        margin-top: 24px;
+        margin-bottom: 24px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+
+        p {
+            text-align: center;
+        }
+
+        .playersImg {
+            width: 272px;
+            max-width: 80vw;
+            min-height: 136px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            .imgBtnCont {
+                position: relative;
+                height: 60px;
+                width: 60px;
+
+
+
+                img {
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    padding: 6px;
+                    transition: all 225ms ease-in-out;
+
+                    // &:hover {
+
+                    // }
+                }
+
+                .avatarBtn {
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                .avatarBtn2 {
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                }
+            }
+
+            .imgBtnCont:hover img {
+                transform: scale(1.05) translate(0px, -3px);
+            }
+        }
+    }
+
+    .tempPlayer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center !important;
+        text-align: center;
+        margin-bottom: 48px;
+
+        h3 {
+            margin-block-end: 0;
+        }
+
+        .tempNameImg {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .tempAvatar {
+                margin-bottom: 8px;
+                height: 80px;
+            }
+        }
+
+        .setBtn {
+            margin-top: 71px;
+            margin-left: 48px;
+            height: 32px;
+            background-color: rgba(0,0,0,0.2);
+        }
+
+        .closeBtn {
+            margin-top: 48px;
+            margin-left: 0;
+        }
+    }
+
+
+}

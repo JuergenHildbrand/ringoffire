@@ -1,4 +1,18 @@
-body,
-html {
+html,
+body {
     margin: 0;
+    height: 100%;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-column {
+    flex-direction: column;
 }
