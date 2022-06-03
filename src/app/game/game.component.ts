@@ -24,6 +24,7 @@ export class GameComponent implements OnInit {
   alreadySelected: boolean = false;
   tempPlayer: string = '';
   playerNames: string = '';
+  addPlayer: Boolean = false;
 
 
 
@@ -35,6 +36,8 @@ export class GameComponent implements OnInit {
 
   ngOnInit(): void {
     this.newGame();
+    this.addPlayer = false;
+    console.log(this.playerNames)
   }
 
   newGame() {
@@ -59,7 +62,7 @@ export class GameComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
-
+    this.addPlayer = true;
 
 
     dialogRef.afterClosed().subscribe((name: string) => {
@@ -67,10 +70,14 @@ export class GameComponent implements OnInit {
         this.game.playerNames.push(name);
         this.alreadySelected = false;
   
-        console.log(this.game.playerImg)
+        // console.log(this.game.playerImg)
         console.log(this.game.playerImgs) 
       }
     });
+  }
+
+  alert() {
+    alert('Please add player(s)')
   }
 
   

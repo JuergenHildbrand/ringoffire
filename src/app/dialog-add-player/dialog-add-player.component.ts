@@ -21,24 +21,22 @@ export class DialogAddPlayerComponent implements OnInit {
 
 
 
-  // constructor(private comp: GameComponent) { }
-
   // public addAvatar(i: number): void {
   //   this.comp.addAvatar(i);
   // }
 
-  // addAvatar(player) {
-  //   // this.game.playerImg.unshift(this.game.playerImgs[player]);
-  //   this.game.playerImgs.splice(player, 1);
-  //   this.alreadySelected = true;
-  //   this.game.currentImg = player;
-  //   console.log(player);
-  //   // this.tempPlayer = this.game.playerImg[0];
-  // }
+  addAvatar(player) {
+    // this.game.playerImg.unshift(this.game.playerImgs[player]);
+    this.game.playerImgs.splice(player, 1);
+    this.alreadySelected = true;
+    this.game.currentImg = player;
+    console.log(player);
+    // this.tempPlayer = this.game.playerImg[0];
+  }
 
-  // alarm() {
-  //   alert('Fill a name');
-  // }
+  alarm() {
+    alert('Fill a name');
+  }
 
   ngOnInit(): void {
     this.alreadySelected = false;

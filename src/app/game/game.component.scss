@@ -20,6 +20,14 @@
         }
     }
 
+    div {
+        position: absolute;
+        left: 0px;
+        width: 150px;
+        height: 188px;
+        z-index: 5;
+    }
+
     .topCard {
         cursor: pointer;
         transition: all 125ms ease-in-out;

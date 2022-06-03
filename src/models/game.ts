@@ -3,7 +3,7 @@ export class Game {
     public stack: string[] = [];
     public playedCards: string[] = [];
     public playerImgs: string[] = [];
-    public playerImg: string[] = [];
+    // public playerImg: string[] = [];
     public currentPlayer: number = 0;
     public currentImg: string = '';
 
