@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StartScreenComponent } from './start-screen/start-screen.component';
@@ -21,10 +20,7 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 import { AngularFireModule } from '@angular/fire/compat';
-
 
 
 
@@ -48,15 +44,15 @@ import { AngularFireModule } from '@angular/fire/compat';
     FormsModule,
     MatInputModule,
     MatCardModule,
-    AngularFirestoreModule,
-    AngularFireAnalyticsModule,
-    AngularFireModule,
+    AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,11 +3,7 @@ import { Game } from 'src/models/game';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-
-
-
-
-
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-game',
@@ -15,9 +11,6 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
-
-
-  
 
   game: Game;
   takeCardAnimation = false;
@@ -27,16 +20,17 @@ export class GameComponent implements OnInit {
   playerNames: string = '';
   addPlayer: Boolean = false;
 
-
-
- 
-  constructor(private firestore: AngularFirestore, public dialog: MatDialog) {}
-
-
-
+  constructor (
+    private route: ActivatedRoute,
+    private firestore: AngularFirestore, 
+    public dialog: MatDialog
+    ) {}
 
   ngOnInit(): void {
     this.newGame();
+    this.route.params.subscribe((params) => {
+      console.log(params)
+    });
     this.addPlayer = false;
     this
       .firestore
@@ -49,7 +43,10 @@ export class GameComponent implements OnInit {
 
   newGame() {
     this.game = new Game();
-    
+    // this
+    //   .firestore
+    //   .collection('games')
+    //   .add(this.game.toJson());
   }
 
   takeCard() {
@@ -58,8 +55,6 @@ export class GameComponent implements OnInit {
       this.takeCardAnimation = true;
       this.game.currentPlayer++;
       this.game.currentPlayer = this.game.currentPlayer % this.game.playerNames.length;
-      // console.log('new card', this.currentCard);
-      // console.log('game is', this.game);
       setTimeout(() => {
         this.game.playedCards.push(this.currentCard);
         this.takeCardAnimation = false;
@@ -70,7 +65,6 @@ export class GameComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
     this.addPlayer = true;
-
 
     dialogRef.afterClosed().subscribe((newPlayer : {name: string, img: string}) => {
       if (newPlayer && newPlayer.name.length > 1) {
@@ -87,8 +81,5 @@ export class GameComponent implements OnInit {
   alert() {
     alert('Please add player(s)')
   }
-
-  
-
 }
 

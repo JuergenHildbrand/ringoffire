@@ -1,14 +1,14 @@
 {
   "targets": {
-    "ring-of-fire-7f45d": {
+    "ring-of-fire-38e13": {
       "hosting": {
         "ringoffire": [
-          "ring-of-fire-7f45d"
+          "ring-of-fire-38e13"
         ]
       }
     }
   },
   "projects": {
-    "default": "ring-of-fire-7f45d"
+    "default": "ring-of-fire-38e13"
   }
 }
