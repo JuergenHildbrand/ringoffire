@@ -29,16 +29,18 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
     this.newGame();
     this.route.params.subscribe((params) => {
-      console.log(params)
-    });
-    this.addPlayer = false;
-    this
+      console.log(params.id);
+      this
       .firestore
       .collection('games')
+      .doc(params.id)
       .valueChanges()
       .subscribe((game) => {
         console.log(game)
       });
+    });
+    this.addPlayer = false;
+    
   }
 
   newGame() {
