@@ -27,7 +27,7 @@ export class StartScreenComponent implements OnInit {
       this.scaleStarts = true;
     }, 1000);
     setTimeout(() => {
-      this.router.navigateByUrl('/game');
+      this.router.navigateByUrl('game');
     }, 2000);
   }
 

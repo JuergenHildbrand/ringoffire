@@ -35,8 +35,14 @@ export class GameComponent implements OnInit {
       .collection('games')
       .doc(params.id)
       .valueChanges()
-      .subscribe((game) => {
-        console.log(game)
+      .subscribe((game: any) => {
+        console.log(game);
+        this.game.playerNames = game.playerNames;
+        this.game.stack = game.stack;
+        this.game.playedCards = game.playedCards;
+        this.game.playerImgs = game.playerImgs;
+        this.game.currentPlayer = game.currentPlayer;
+        this.game.currentImg = game.currentImg;
       });
     });
     this.addPlayer = false;
