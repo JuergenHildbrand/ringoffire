@@ -16,9 +16,8 @@ export class GameComponent implements OnInit {
   takeCardAnimation = false;
   currentCard: string = '';
   alreadySelected: boolean = false;
-  tempPlayer: string = '';
-  playerNames: string = '';
-  addPlayer: Boolean = false;
+  addPlayer: Boolean;
+  gameId: string;
 
   constructor (
     private route: ActivatedRoute,
@@ -30,6 +29,7 @@ export class GameComponent implements OnInit {
     this.newGame();
     this.route.params.subscribe((params) => {
       console.log(params.id);
+      this.gameId = params.id;
       this
       .firestore
       .collection('games')
@@ -43,51 +43,62 @@ export class GameComponent implements OnInit {
         this.game.playerImgs = game.playerImgs;
         this.game.currentPlayer = game.currentPlayer;
         this.game.currentImg = game.currentImg;
+        this.addPlayer = game.addPlayer;
       });
     });
-    this.addPlayer = false;
-    
   }
 
   newGame() {
     this.game = new Game();
-    // this
-    //   .firestore
-    //   .collection('games')
-    //   .add(this.game.toJson());
+    if (this.game.playerNames.length > 0 ) {
+      console.log(this.game.playerNames);
+      
+      this.addPlayer = true;
+    }
   }
 
   takeCard() {
     if (!this.takeCardAnimation) {
       this.currentCard = this.game.stack.pop(); // pop = der letzte wert aus dem array und wird gleichzeitig entfernt 
       this.takeCardAnimation = true;
+      
+
       this.game.currentPlayer++;
       this.game.currentPlayer = this.game.currentPlayer % this.game.playerNames.length;
+      this.saveGame();
       setTimeout(() => {
         this.game.playedCards.push(this.currentCard);
         this.takeCardAnimation = false;
+        this.newGame();
       }, 1000);
     }
   }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
-    this.addPlayer = true;
+    
 
     dialogRef.afterClosed().subscribe((newPlayer : {name: string, img: string}) => {
       if (newPlayer && newPlayer.name.length > 1) {
         this.game.playerNames.push(newPlayer.name);
         this.game.currentImg.push(newPlayer.img + 1);
         this.alreadySelected = false;
-  
-
-        console.log(newPlayer) 
+        this.addPlayer = true;
+        this.saveGame();
       }
     });
   }
 
   alert() {
     alert('Please add player(s)')
+  }
+
+  saveGame() {
+    this
+      .firestore
+      .collection('games')
+      .doc(this.gameId)
+      .update(this.game.toJson());
   }
 }
 

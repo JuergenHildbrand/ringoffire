@@ -13,7 +13,7 @@
         <!-- Card stack -->
         <img *ngFor="let c of [0, 1, 2, 3]; let i = index;" [ngStyle]="{'right.px': i * 5}"
             src="/assets/img/cards/card_cover.png">
-        <div class="topCard" style="right: 25px" (click)="alert()" [class.d-none]="addPlayer"></div>    
+        <!-- <div class="topCard" style="right: 25px" (click)="alert()" [class.d-none]="addPlayer"></div>     -->
         <img class="topCard" style="right: 25px" (click)="takeCard()" src="/assets/img/cards/card_cover.png">
         
 
