@@ -58,11 +58,10 @@ export class GameComponent implements OnInit {
     if (!this.game.takeCardAnimation) {
       this.game.currentCard = this.game.stack.pop(); // pop = der letzte wert aus dem array und wird gleichzeitig entfernt 
       this.game.takeCardAnimation = true;
-
-
       this.game.currentPlayer++;
       this.game.currentPlayer = this.game.currentPlayer % this.game.playerNames.length;
       this.saveGame();
+      
       setTimeout(() => {
         this.game.playedCards.push(this.game.currentCard);
         this.game.takeCardAnimation = false;
