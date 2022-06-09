@@ -41,6 +41,7 @@ export class GameComponent implements OnInit {
           this.game.currentCard = game.currentCard;
           this.game.alreadySelected = game.alreadySelected;
           this.game.addPlayer = game.addPlayer;
+          this.game.takeCardAnimation = game.takeCardAnimation;
         });
     });
   }
