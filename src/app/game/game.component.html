@@ -13,7 +13,7 @@
         <!-- Card stack -->
         <img *ngFor="let c of [0, 1, 2, 3]; let i = index;" [ngStyle]="{'right.px': i * 5}"
             src="/assets/img/cards/card_cover.png">
-        <!-- <div class="topCard" style="right: 25px" (click)="alert()" [class.d-none]="addPlayer"></div>     -->
+        <div class="topCard" style="right: 25px" (click)="alert()" [class.d-none]="game.addPlayer"></div>    
         <img class="topCard" style="right: 25px" (click)="takeCard()" src="/assets/img/cards/card_cover.png">
         
 
@@ -21,13 +21,13 @@
         <img class="playedCard" *ngFor="let card of game.playedCards" src="/assets/img/cards/{{ card }}.png">
 
         <!-- Curent card (Animation) -->
-        <img class="takeCard" style="right: 25px" *ngIf="takeCardAnimation"
-            src="/assets/img/cards/{{ currentCard }}.png">
+        <img class="takeCard" style="right: 25px" *ngIf="game.takeCardAnimation"
+            src="/assets/img/cards/{{ game.currentCard }}.png">
 
     </div>
 </div>
 
-<app-game-info class="pinBottom" [card]="currentCard"></app-game-info>
+<app-game-info class="pinBottom" [card]="game.currentCard"></app-game-info>
 
 
 <button class="addBtn" (click)="openDialog()" mat-fab color="primary">

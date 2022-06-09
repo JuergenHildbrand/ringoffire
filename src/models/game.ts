@@ -5,6 +5,10 @@ export class Game {
     public playerImgs: string[] = [];
     public currentPlayer: number = 0;
     public currentImg: string[] = [];
+    public takeCardAnimation = false;
+    public currentCard: string = '';
+    public alreadySelected: boolean = false;
+    public addPlayer: Boolean = false;
 
     constructor() {
         for (let i = 1; i < 14; i++) {
@@ -16,8 +20,8 @@ export class Game {
         for (let i = 1; i < 9; i++) {
             this.playerImgs.push('p' + i);
         }
-        
-        
+
+
         shuffle(this.stack);
     }
 
@@ -28,25 +32,29 @@ export class Game {
             playedCards: this.playedCards,
             playerImgs: this.playerImgs,
             currentPlayer: this.currentPlayer,
-            currentImg: this.currentImg
+            currentImg: this.currentImg,
+            takeCardAnimation: this.takeCardAnimation,
+            currentCard: this.currentCard,
+            alreadySelected: this.alreadySelected,
+            addPlayer: this.addPlayer
         }
     }
 }
 
 function shuffle(array) {
-    let currentIndex = array.length,  randomIndex;
-  
+    let currentIndex = array.length, randomIndex;
+
     // While there remain elements to shuffle.
     while (currentIndex != 0) {
-  
-      // Pick a remaining element.
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-  
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
+
+        // Pick a remaining element.
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
     }
-  
+
     return array;
-  }
+}
