@@ -14,28 +14,18 @@ export class DialogAddPlayerComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>,) {}
 
-
+  game: Game;
   name: string = '';
   img: number;
-  alreadySelected: boolean = false;
   avatars = [
     1,2,3,4,5,6,7,8
   ];
-
-
-
-
-
-  // public addAvatar(i: number): void {
-  //   this.comp.addAvatar(i);
-  // }
+  selected: boolean = false;
 
   addAvatar(avatarIndex) {
-
-    // this.game.playerImgs.splice(player, 1);
-    this.alreadySelected = true;
+    // this.game.alreadySelected = true;
     this.img = avatarIndex;
-    console.log(avatarIndex)
+    this.selected = true;
   }
 
   alarm() {
@@ -43,7 +33,7 @@ export class DialogAddPlayerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.alreadySelected = false;
+    // this.game.alreadySelected = false;
   }
 
   onNoClick() {

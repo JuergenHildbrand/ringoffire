@@ -30,19 +30,14 @@
                 position: relative;
                 height: 60px;
                 width: 60px;
-
-
+                margin-left: 4px;
+                margin-right: 4px;
 
                 img {
                     position: absolute;
                     height: 100%;
                     width: 100%;
-                    padding: 6px;
                     transition: all 225ms ease-in-out;
-
-                    // &:hover {
-
-                    // }
                 }
 
                 .avatarBtn {
@@ -65,7 +60,7 @@
             }
 
             .imgBtnCont:hover img {
-                transform: scale(1.05) translate(0px, -3px);
+                transform: scale(1.05) translate(0px, -4px);
             }
         }
     }
@@ -98,7 +93,7 @@
             margin-top: 71px;
             margin-left: 48px;
             height: 32px;
-            background-color: rgba(0,0,0,0.2);
+            background-color: rgba(0, 0, 0, 0.2);
         }
 
         .closeBtn {
@@ -106,6 +101,9 @@
             margin-left: 0;
         }
     }
+}
 
-
+.selected {
+    border: 2px solid blue;
+    z-index: 10;
 }

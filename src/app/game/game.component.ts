@@ -39,7 +39,7 @@ export class GameComponent implements OnInit {
           this.game.currentPlayer = game.currentPlayer;
           this.game.currentImg = game.currentImg;
           this.game.currentCard = game.currentCard;
-          this.game.alreadySelected = game.alreadySelected;
+          // this.game.alreadySelected = game.alreadySelected;
           this.game.addPlayer = game.addPlayer;
           this.game.takeCardAnimation = game.takeCardAnimation;
         });
@@ -79,7 +79,7 @@ export class GameComponent implements OnInit {
       if (newPlayer && newPlayer.name.length > 1) {
         this.game.playerNames.push(newPlayer.name);
         this.game.currentImg.push(newPlayer.img + 1);
-        this.game.alreadySelected = false;
+        // this.game.alreadySelected = false;
         this.game.addPlayer = true;
         this.saveGame();
       }

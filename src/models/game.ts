@@ -7,20 +7,21 @@ export class Game {
     public currentImg: string[] = [];
     public takeCardAnimation = false;
     public currentCard: string = '';
-    public alreadySelected: boolean = false;
+    // public alreadySelected: boolean = false;
     public addPlayer: Boolean = false;
 
     constructor() {
+        
         for (let i = 1; i < 14; i++) {
             this.stack.push('ace_' + i);
             this.stack.push('clubs_' + i);
             this.stack.push('diamonds_' + i);
             this.stack.push('hearts_' + i);
         }
+
         for (let i = 1; i < 9; i++) {
             this.playerImgs.push('p' + i);
         }
-
 
         shuffle(this.stack);
     }
@@ -35,7 +36,7 @@ export class Game {
             currentImg: this.currentImg,
             takeCardAnimation: this.takeCardAnimation,
             currentCard: this.currentCard,
-            alreadySelected: this.alreadySelected,
+            // alreadySelected: this.alreadySelected,
             addPlayer: this.addPlayer
         }
     }

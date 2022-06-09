@@ -13,7 +13,7 @@
         <p>Choose an avatar</p>
         <div class="playersImg">
             <div class="imgBtnCont" *ngFor="let player of avatars; let i = index;">
-                <img src="assets/img/players/p{{ player }}.png">
+                <img src="assets/img/players/p{{ player }}.png" [class.selected]="player == img + 1">
                 <button class="avatarBtn" (click)="addAvatar(i)"></button>
                 <button class="avatarBtn2" (click)="alarm()" [disabled]="name" [class.d-none]="name"></button>
             </div>
@@ -25,5 +25,3 @@
     </div>
 
 </div>
-
-<!-- [disabled]="alreadySelected || !name" -->
