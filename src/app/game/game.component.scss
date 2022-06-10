@@ -2,12 +2,11 @@
     position: absolute;
     top: 32px;
     right: 0;
-    width: 200px;
+    width: 260px;
     height: 80vh;
-
     overflow-y: auto;
     overflow-x: hidden;
-
+    
 
     .playerPosition {
         position: absolute;
@@ -27,6 +26,15 @@
 
     app-player-mobile {
         margin-left: 8px;
+    }
+}
+
+app-player, app-player-mobile {
+    cursor: pointer;
+    transition: 225ms;
+
+    &:hover {
+        filter: brightness(110%);
     }
 }
 

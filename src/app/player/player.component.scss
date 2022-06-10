@@ -1,25 +1,26 @@
-#player {
+ #player {
+     width: 200px;
+     display: flex;
+     align-items: center;
+     background-color: rgba(163, 163, 163, 0.7);
+     border-top-left-radius: 25px;
+     border-bottom-left-radius: 25px;
+     cursor: pointer;
 
-    width: 200px;
-    display: flex;
-    align-items: center;
-    background-color: rgba(163, 163, 163, 0.7);
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
 
-    img {
-        width: 70px;
-        height: 70px;
-        object-fit: cover;
-        border-radius: 100%;
-        margin: 8px;
-    }
-    
-    span {
-        font-size: 32px;
-    }
-}
+     img {
+         width: 60px;
+         height: 60px;
+         object-fit: cover;
+         border-radius: 100%;
+         margin: 8px;
+     }
 
-.playerActive {
-    background-color: orange !important;
-}
+     span {
+         font-size: 32px;
+     }
+ }
+
+ .playerActive {
+     background-color: orange !important;
+ }

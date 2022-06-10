@@ -4,14 +4,15 @@ export class Game {
     public playedCards: string[] = [];
     public playerImgs: string[] = [];
     public currentPlayer: number = 0;
-    public currentImg: string[] = [];
+    // public currentImg: string[] = [];
     public takeCardAnimation = false;
     public currentCard: string = '';
     // public alreadySelected: boolean = false;
     public addPlayer: Boolean = false;
+    // public deletePlayer: boolean = false;
 
     constructor() {
-        
+
         for (let i = 1; i < 14; i++) {
             this.stack.push('ace_' + i);
             this.stack.push('clubs_' + i);
@@ -19,9 +20,9 @@ export class Game {
             this.stack.push('hearts_' + i);
         }
 
-        for (let i = 1; i < 9; i++) {
-            this.playerImgs.push('p' + i);
-        }
+        // for (let i = 1; i < 9; i++) {
+        //     this.playerImgs.push('p' + i);
+        // }
 
         shuffle(this.stack);
     }
@@ -31,13 +32,14 @@ export class Game {
             playerNames: this.playerNames,
             stack: this.stack,
             playedCards: this.playedCards,
+            takeCardAnimation: this.takeCardAnimation,
             playerImgs: this.playerImgs,
             currentPlayer: this.currentPlayer,
-            currentImg: this.currentImg,
-            takeCardAnimation: this.takeCardAnimation,
+            // currentImg: this.currentImg,
             currentCard: this.currentCard,
             // alreadySelected: this.alreadySelected,
-            addPlayer: this.addPlayer
+            addPlayer: this.addPlayer,
+            // deletePlayer: this.deletePlayer
         }
     }
 }

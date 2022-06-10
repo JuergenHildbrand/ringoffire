@@ -9,7 +9,7 @@
             <!-- ng model bindet eine variable an das inputfield (two way binding) -->
         </mat-form-field>
     </div>
-    <div class="avatar">
+    <!-- <div class="avatar">
         <p>Choose an avatar</p>
         <div class="playersImg">
             <div class="imgBtnCont" *ngFor="let player of avatars; let i = index;">
@@ -18,10 +18,12 @@
                 <button class="avatarBtn2" (click)="alarm()" [disabled]="name" [class.d-none]="name"></button>
             </div>
         </div>
-    </div>
+    </div> -->
     <div mat-dialog-actions>
         <button mat-button (click)="onNoClick()">No Thanks</button>
-        <button mat-button [mat-dialog-close]="createNewPlayer()" [disabled]="!name" cdkFocusInitial>Ok</button>
+        <button mat-button [mat-dialog-close]="name" [disabled]="!name" cdkFocusInitial>Ok</button>
     </div>
 
 </div>
+
+<!-- [mat-dialog-close]="createNewPlayer()" -->

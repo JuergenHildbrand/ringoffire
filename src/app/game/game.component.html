@@ -1,13 +1,22 @@
 <div class="scrollContDesktop">
-    <app-player class="playerPosition hideMobile" *ngFor="let name of game.playerNames; let i = index;"
-        [ngStyle]="{'top.px': 0 + (i * 90)}" [name]="name" [currentImg]="game.currentImg[i]"
-        [playerActive]="i == game.currentPlayer">
+    <app-player 
+        class="playerPosition hideMobile" 
+        *ngFor="let name of game.playerNames; let i = index;"
+        [ngStyle]="{'top.px': 0 + (i * 90)}" 
+        [name]="name"
+        [image]="game.playerImgs[i]"
+        [playerActive]="i == game.currentPlayer"
+        (click)="editPlayer(i)">
     </app-player>
 </div>
 
 <div class="scrollContMobile hideDesktop">
-    <app-player-mobile *ngFor="let name of game.playerNames; let i = index;" [name]="name"
-        [currentImg]="game.currentImg[i]" [playerActive]="i == game.currentPlayer">
+    <app-player-mobile 
+        *ngFor="let name of game.playerNames; let i = index;" 
+        [name]="name"
+        [image]="game.playerImgs[i]"
+        [playerActive]="i == game.currentPlayer"
+        (click)="editPlayer(i)">
     </app-player-mobile>
 </div>
 
@@ -32,7 +41,6 @@
 </div>
 
 <app-game-info class="pinBottom" [card]="game.currentCard"></app-game-info>
-
 
 <button class="addBtn" (click)="openDialog()" mat-fab color="primary">
     <mat-icon>add</mat-icon>

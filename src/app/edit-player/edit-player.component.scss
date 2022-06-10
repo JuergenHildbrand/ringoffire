@@ -1,0 +1,29 @@
+.editPlayerCont {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+
+    .avatarCont {
+
+        max-width: 80vw;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .avatars {
+            height: 80px;
+            width: 80px;
+            margin: 8px;
+            cursor: pointer;
+            transition: 225ms;
+
+            &:hover {
+                filter: brightness(105%);
+                transform: scale(1.05) translate(0px, -4px);
+            }
+        }
+    }
+}
