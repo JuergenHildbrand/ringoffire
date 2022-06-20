@@ -7,26 +7,15 @@ import { GameComponent } from '../game/game.component';
   templateUrl: './player-mobile.component.html',
   styleUrls: ['./player-mobile.component.scss']
 })
+
 export class PlayerMobileComponent implements OnInit {
 
-  @Input() name;
-  @Input() image;
+  @Input() name: any;
+  @Input() image: any;
   @Input() playerActive: boolean = false;
-  // @Input() currentImg;
-  // @Input() deletePlayer;
 
   constructor(private comp: GameComponent) { }
 
   ngOnInit(): void {
-
   }
-
-  // public playerDelete(): void {
-  //   this.comp.playerDelete();
-  // }
-
-  // public openDelete(): void {
-  //   this.comp.openDelete();
-  // }
-
 }

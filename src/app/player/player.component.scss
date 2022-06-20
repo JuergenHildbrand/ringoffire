@@ -1,26 +1,29 @@
- #player {
-     width: 200px;
-     display: flex;
-     align-items: center;
-     background-color: rgba(163, 163, 163, 0.7);
-     border-top-left-radius: 25px;
-     border-bottom-left-radius: 25px;
-     cursor: pointer;
+#player {
+    overflow: hidden;
+    width: 240px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(163, 163, 163, 0.7);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    cursor: pointer;
 
+    img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 100%;
+        margin: 8px;
+    }
 
-     img {
-         width: 60px;
-         height: 60px;
-         object-fit: cover;
-         border-radius: 100%;
-         margin: 8px;
-     }
+    span {
+        font-size: 24px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+}
 
-     span {
-         font-size: 32px;
-     }
- }
-
- .playerActive {
-     background-color: orange !important;
- }
+.playerActive {
+    background-color: orange !important;
+}

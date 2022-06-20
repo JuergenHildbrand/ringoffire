@@ -22,10 +22,11 @@ export class GameComponent implements OnInit {
     public dialog: MatDialog
   ) { }
 
+  
   ngOnInit(): void {
     this.newGame();
     this.route.params.subscribe((params) => {
-      console.log(params.id);
+      // console.log(params.id);
       this.gameId = params.id;
       this
         .firestore
@@ -33,26 +34,27 @@ export class GameComponent implements OnInit {
         .doc(params.id)
         .valueChanges()
         .subscribe((game: any) => {
-          console.log(game);
+          // console.log(game);
           this.game.playerNames = game.playerNames;
           this.game.stack = game.stack;
           this.game.playedCards = game.playedCards;
           this.game.takeCardAnimation = game.takeCardAnimation;
           this.game.playerImgs = game.playerImgs;
           this.game.currentPlayer = game.currentPlayer;
-          // this.game.currentImg = game.currentImg;
           this.game.currentCard = game.currentCard;
-          // this.game.alreadySelected = game.alreadySelected;
           this.game.addPlayer = game.addPlayer;
-
-          // this.game.deletePlayer = game.deletePlayer;
+          this.game.portrait = game.portrait;
+          this.checkOrientation();
+          console.log(this.game.portrait);
         });
     });
   }
 
+
   newGame() {
     this.game = new Game();
   }
+
 
   takeCard() {
     if (!this.game.takeCardAnimation) {
@@ -70,6 +72,7 @@ export class GameComponent implements OnInit {
     }
   }
 
+
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
@@ -78,8 +81,8 @@ export class GameComponent implements OnInit {
       if (name) {
         this.game.playerNames.push(name);
         this.game.playerImgs.push('p0');
-        if (this.game.playerNames.length > 1) {
 
+        if (this.game.playerNames.length > 1) {
           this.game.addPlayer = true;
         }
 
@@ -88,51 +91,39 @@ export class GameComponent implements OnInit {
     });
   }
 
+
   alert() {
+
     if (this.game.playerNames.length == 0) {
       alert('Add minimum 2 players');
-      console.log(this.game.playerNames);
+      // console.log(this.game.playerNames);
     }
+
     if (this.game.playerNames.length == 1) {
       alert('Add one more player');
-      console.log(this.game.playerNames);
+      // console.log(this.game.playerNames);
     }
   }
 
-  editPlayer(i) {
-    console.log(i);
+
+  editPlayer(i: number) {
+
     const dialogRef = this.dialog.open(EditPlayerComponent);
 
     dialogRef.afterClosed().subscribe(change => {
       if (change) {
+        
         if (change == 'DELETE') {
           this.game.playerNames.splice(i, 1);
           this.game.playerImgs.splice(i, 1);
         } else {
           this.game.playerImgs[i] = change;
-          
         }
         this.saveGame();
       }
-
-
     });
-
   }
 
-  // openDelete() {
-  //   this.game.deletePlayer = true;
-  //   // console.log(this.game.deletePlayer);
-  //   // this.saveGame();
-  //   console.log('works');
-
-  // }
-
-  // playerDelete() {
-  //   // console.log(this.game.playerNames);
-  //   this.game.playerNames.splice(i, 1);
-  //   console.log('works');
-  // }
 
   saveGame() {
     this
@@ -141,8 +132,41 @@ export class GameComponent implements OnInit {
       .doc(this.gameId)
       .update(this.game.toJson());
   }
-}
 
-  // this.game.currentImg.push(newPlayer.img + 1);
-        // this.game.alreadySelected = false;
-        // this.game.addPlayer = true;
+
+  checkOrientation() {
+
+    if ((window.innerHeight < window.innerWidth) && window.innerHeight < 599) {
+      this.game.portrait = false;
+      console.log(this.game.portrait);
+    }
+
+    if ((window.innerHeight > window.innerWidth) && window.innerHeight > 600) {
+      this.game.portrait = true;
+      console.log(this.game.portrait);
+    }
+
+    window.addEventListener("orientationchange", () => {
+
+      if ((window.innerHeight < window.innerWidth) && window.innerHeight < 599) {
+        this.setPortraitTrue();
+        console.log(this.game.portrait);
+      }
+
+      if ((window.innerHeight > window.innerWidth) && window.innerHeight > 600) {
+        this.setPortraitFalse();
+        console.log(this.game.portrait);
+      }
+      
+    }, false);
+  }
+
+  setPortraitTrue() {
+    this.game.portrait = true;
+  }
+
+  setPortraitFalse() {
+    this.game.portrait = false;
+  }
+
+}

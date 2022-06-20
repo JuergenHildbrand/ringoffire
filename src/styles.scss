@@ -17,14 +17,15 @@ body {
     flex-direction: column;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 719px) {
     .hideMobile {
         display: none;
     }
 }
 
-@media (min-width: 721px) {
+@media (min-width: 720px) {
     .hideDesktop {
         display: none !important;
     }
 }
+

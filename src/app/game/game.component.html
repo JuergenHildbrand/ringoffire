@@ -20,7 +20,7 @@
     </app-player-mobile>
 </div>
 
-<div id="gameField">
+<div class="gameField">
     <div class="cardStack">
 
         <!-- Card stack -->
@@ -45,3 +45,7 @@
 <button class="addBtn" (click)="openDialog()" mat-fab color="primary">
     <mat-icon>add</mat-icon>
 </button>
+
+<div class="landscape" [class.d-none]="game.portrait">
+    Please turn your mobile!
+</div>

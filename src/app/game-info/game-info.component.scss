@@ -1,5 +1,29 @@
 mat-card {
+
+    mat-card-title {
+        margin-bottom: 24px;
+    }
+
     @media (max-width: 720px) {
         min-height: 120px;
+
+        mat-card-subtitle {
+            max-width: 78%;
+            font-size: 12px;
+        }
+    }
+
+    @media (max-width: 340px) {
+
+        padding: 12px;
+
+        mat-card-title {
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        mat-card-subtitle {
+            font-size: 10px;
+        }
     }
 }
