@@ -45,7 +45,7 @@ export class GameComponent implements OnInit {
           this.game.addPlayer = game.addPlayer;
           this.game.portrait = game.portrait;
           this.checkOrientation();
-          console.log(this.game.portrait);
+          // console.log(this.game.portrait);
         });
     });
   }
@@ -138,24 +138,20 @@ export class GameComponent implements OnInit {
 
     if ((window.innerHeight < window.innerWidth) && window.innerHeight < 599) {
       this.game.portrait = false;
-      console.log(this.game.portrait);
     }
 
     if ((window.innerHeight > window.innerWidth) && window.innerHeight > 600) {
       this.game.portrait = true;
-      console.log(this.game.portrait);
     }
 
     window.addEventListener("orientationchange", () => {
 
       if ((window.innerHeight < window.innerWidth) && window.innerHeight < 599) {
         this.setPortraitTrue();
-        console.log(this.game.portrait);
       }
 
       if ((window.innerHeight > window.innerWidth) && window.innerHeight > 600) {
         this.setPortraitFalse();
-        console.log(this.game.portrait);
       }
       
     }, false);
